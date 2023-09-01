@@ -15,6 +15,7 @@ public class Ejercicio_33 extends javax.swing.JFrame {
      * Creates new form Ejercicio_33
      */
     Carro ObjCarro=new Carro();
+    int x=0, y=0, z=0, w=0,opc=0,opc2=0;
     public Ejercicio_33() {
         initComponents();
     }
@@ -234,7 +235,8 @@ public class Ejercicio_33 extends javax.swing.JFrame {
     }//GEN-LAST:event_TexMarcaActionPerformed
 
     private void BotMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotMarcaActionPerformed
-        ObjCarro.Marca=TexMarca.getText();
+        ObjCarro.Marca[x]=TexMarca.getText();
+        x++;
         TexMarca.setText("");
     }//GEN-LAST:event_BotMarcaActionPerformed
 
@@ -243,7 +245,8 @@ public class Ejercicio_33 extends javax.swing.JFrame {
     }//GEN-LAST:event_TexModeloActionPerformed
 
     private void BotModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotModeloActionPerformed
-        ObjCarro.Modelo=Integer.parseInt(TexModelo.getText());
+        ObjCarro.Modelo[y]=Double.parseDouble(TexModelo.getText());
+        y++;
         TexModelo.setText("");
     }//GEN-LAST:event_BotModeloActionPerformed
 
@@ -252,7 +255,8 @@ public class Ejercicio_33 extends javax.swing.JFrame {
     }//GEN-LAST:event_TexColorActionPerformed
 
     private void BotColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotColorActionPerformed
-        ObjCarro.Color=TexColor.getText();
+        ObjCarro.Color[z]=TexColor.getText();
+        z++;
         TexColor.setText("");
     }//GEN-LAST:event_BotColorActionPerformed
 
@@ -261,7 +265,8 @@ public class Ejercicio_33 extends javax.swing.JFrame {
     }//GEN-LAST:event_TexKilometrajeActionPerformed
 
     private void BotKilometrajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotKilometrajeActionPerformed
-        ObjCarro.Kilometraje=Integer.parseInt(TexKilometraje.getText());
+        ObjCarro.Kilometraje[w]=Double.parseDouble(TexKilometraje.getText());
+        w++;
         TexKilometraje.setText("");
     }//GEN-LAST:event_BotKilometrajeActionPerformed
 
@@ -273,13 +278,13 @@ public class Ejercicio_33 extends javax.swing.JFrame {
     private void BotElegirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotElegirActionPerformed
         if(BotElegir.getSelectedItem()=="Modelo")
         {
-            
+            opc=1;
         }
         else
         {
             if(BotElegir.getSelectedItem()=="Kilometraje")
             {
-                
+                opc=0;
             }
         }
     }//GEN-LAST:event_BotElegirActionPerformed
@@ -287,13 +292,30 @@ public class Ejercicio_33 extends javax.swing.JFrame {
     private void BotMetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotMetodoActionPerformed
         if(BotMetodo.getSelectedItem()=="Bubble sort")
         {
-            
+            opc2=1;
+            if(opc==1)
+            {
+                Ordenar.burbuja(ObjCarro.Modelo);
+            }
+            else
+            {
+                Ordenar.burbuja(ObjCarro.Kilometraje);
+            }
         }
         else
         {
             if(BotMetodo.getSelectedItem()=="Mergesort")
             {
-                
+                opc2=0;
+                if(opc==0)
+                {
+                    Ordenar.mergesort(ObjCarro.Kilometraje);
+                    opc=3;
+                }
+                else
+                {
+                    Ordenar.mergesort(ObjCarro.Modelo);
+                }
             }
         }
     }//GEN-LAST:event_BotMetodoActionPerformed

@@ -1,26 +1,27 @@
 package Ejercicio_32_y_33;
-
-
-
-
 import java.util.Arrays;
+public class Ordenar 
+{
 
-public class Ordenar {
-
-     public static double[] generarArregloAleatorio(int n) {
+    public static double[] generarArregloAleatorio(int n)
+    {
         double[] arreglo = new double[n];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) 
+        {
             arreglo[i] = Math.random();
         }
         return arreglo;
     }
-    
-    public static void burbuja(double[] arreglo) {
+    public static void burbuja(double[] arreglo)
+    {
         int n = arreglo.length;
         double temp = 0;
-        for (int i = 0; i < n-1; i++) {
-            for (int j = 0; j < n-1-i; j++) {
-                if (arreglo[j] > arreglo[j+1]) {        
+        for (int i = 0; i < n-1; i++) 
+        {
+            for (int j = 0; j < n-1-i; j++) 
+            {
+                if (arreglo[j] > arreglo[j+1]) 
+                {        
                     temp = arreglo[j];
                     arreglo[j] = arreglo[j+1];
                     arreglo[j+1] = temp;

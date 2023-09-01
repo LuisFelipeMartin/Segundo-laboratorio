@@ -14,6 +14,8 @@ public class Ejercicio_33_2 extends javax.swing.JFrame {
     /**
      * Creates new form Ejercicio_33_2
      */
+    Carro ObjCarro=new Carro();
+    Ejercicio_33 ObjEjercicio_33=new Ejercicio_33();
     public Ejercicio_33_2() {
         initComponents();
     }
@@ -29,8 +31,7 @@ public class Ejercicio_33_2 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         TexTitulo = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        TexOrdenamiento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setType(java.awt.Window.Type.UTILITY);
@@ -44,13 +45,16 @@ public class Ejercicio_33_2 extends javax.swing.JFrame {
         TexTitulo.setText("Menor A Mayor");
         TexTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jList1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        TexOrdenamiento.setBackground(new java.awt.Color(255, 255, 255));
+        TexOrdenamiento.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        TexOrdenamiento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TexOrdenamiento.setText("EN PROCESO");
+        TexOrdenamiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TexOrdenamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TexOrdenamientoActionPerformed(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -58,25 +62,51 @@ public class Ejercicio_33_2 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(TexTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))
+                .addComponent(TexTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TexOrdenamiento)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(TexTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                .addGap(10, 10, 10))
+                .addGap(20, 20, 20)
+                .addComponent(TexOrdenamiento, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
         );
+
+        TexOrdenamiento.getAccessibleContext().setAccessibleName("");
+        TexOrdenamiento.getAccessibleContext().setAccessibleDescription("");
+        TexOrdenamiento.getAccessibleContext().setAccessibleParent(TexTitulo);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TexOrdenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TexOrdenamientoActionPerformed
+        for(int i=0;i<10;i++)
+                {
+                    TexOrdenamiento.setText();
+                } 
+        if(ObjEjercicio_33.opc2==1)
+        {
+            if(ObjEjercicio_33.opc==1)
+            {
+                for(int i=0;i<ObjEjercicio_33.x;i++)
+                {
+                    TexOrdenamiento.setText( TexOrdenamiento.getText() + "a");
+                } 
+            }
+        }
+        else
+        {
+            
+        }
+    }//GEN-LAST:event_TexOrdenamientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,9 +144,8 @@ public class Ejercicio_33_2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TexOrdenamiento;
     private javax.swing.JLabel TexTitulo;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
